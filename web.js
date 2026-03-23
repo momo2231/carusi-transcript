@@ -3,13 +3,16 @@ const path = require("path");
 
 const app = express();
 
-// serve i file html
+// 🔥 serve la cartella transcripts
 app.use("/transcripts", express.static(path.join(__dirname, "transcripts")));
 
+// homepage
 app.get("/", (req, res) => {
-  res.send("Transcript server online");
+  res.send("✅ Transcript server online!");
 });
 
-app.listen(3000, () => {
-  console.log("🌐 Web server attivo su porta 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server avviato su porta ${PORT}`);
 });
